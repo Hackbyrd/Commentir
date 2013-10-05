@@ -28,9 +28,42 @@ insert = insert + "</ul>";
 // > End Scollable comments box
 insert = insert + "</div>";
 
-insert = insert + "<button style = 'background-color: #db2a21; border-radius: 2px; color:white; padding:5px;'>Comment</button>"
+insert = insert + "<button id='commentButton' style = 'background-color: #db2a21; border-radius: 2px; color:white; padding:5px;'>Comment</button>"
 
 // End Commentir Comments Box
 insert = insert + "</div>";
 
 $("#player").after(insert);
+
+var s = document.createElement('script');
+s.src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.documentElement).appendChild(s);
+
+var s = document.createElement('script');
+s.src = chrome.extension.getURL("comment.js");
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.documentElement).appendChild(s);
+
+
+var insert = 
+['<div id="dialog-form" title="Create new user">',
+'  <p class="validateTips">All form fields are required.</p>',
+' ',
+'  <form>',
+'  <fieldset>',
+'    <label for="name">Name</label>',
+'    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />',
+'    <label for="email">Email</label>',
+'    <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />',
+'    <label for="password">Password</label>',
+'    <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />',
+'  </fieldset>',
+'  </form>',
+'</div>'].join('\n');
+(document.documentElement).appendChild(insert);
+

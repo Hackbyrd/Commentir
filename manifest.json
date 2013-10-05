@@ -13,10 +13,16 @@
     "default_icon": "icon.png"
   },
 
+//  "background": { "scripts": ["jquery-1.10.2.min.js"]}, 
+
   "content_scripts": [
     {
       "matches": ["http://www.youtube.com/watch?v=*"],
       "js": ["jquery.min.js","commentir.js"]
     }
-  ]
+  ],
+
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://ajax.googleapis.com; object-src 'self'",
+
+  "web_accessible_resources": ["comment.js"]
 }
