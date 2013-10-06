@@ -158,7 +158,7 @@ function displayCommentss() {
 	if (commentList[0] && commentList[0].time <= videoPlayer.getCurrentTime()){
 		var c = commentList.shift();
 		$('#firstComment').hide();
-		$("<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>"+secondsToString(c.time)+"</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>"+c.author+":</b> "+c.content+"</div></li>").insertBefore($('#commentDisplay li:first'));
+		$("<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i><a href='#' onclick='yt.www.watch.player.seekTo("+c.time+");return false;''>"+secondsToString(c.time)+"</a></i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>"+c.author+":</b> "+c.content+"</div></li>").insertBefore($('#commentDisplay li:first'));
 	}
 }
 
