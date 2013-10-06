@@ -399,7 +399,7 @@ Commentir.prototype.post = function(content, video, time, onComplete) {
     timestamp: new Date().getTime()
   };
 
-  sparkRef.set(spark, function(err) {
+  sparkRef.setWithPriority(spark, time, function(err) {
     if (err) {
       onComplete(new Error("Could not post spark"), false);
       return;

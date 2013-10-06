@@ -3,6 +3,7 @@ var submitButton = document.getElementById("submitButton");
 var firebase;
 
 var commentList = new Array(); 
+var addedComments = {};
 
 var videoPlayer;
 var __c_ui;
@@ -52,7 +53,8 @@ function CommentirUI() {
 			 	var author = comments[c]['by'];
 			 	var video = comments[c]['video'];
 			 	var comment = {id:c, content:content, time:time, author:author, video:video};
-			 	if (video === videoPlayer.getVideoUrl().split("&")[0]){
+			 	if (video === videoPlayer.getVideoUrl().split("&")[0] && !addedComments[c]){
+			 		addedComments[c] = true;
 			 		commentList.push(comment);
 			 	}
 			 }
