@@ -84,8 +84,6 @@ CommentirUI.prototype._postHandler = function(e) {
 	    	var comment = $('#commentBox').val();
 			var videoUrl = videoPlayer.getVideoUrl();
 			var time = stringToSeconds($('#timeBox').val());
-			alert("fsfd");
-			alert(self._commentir._userid);
 			self._commentir.post(comment, videoUrl, time, function(err, done) {
 		    if (!err) {
 		      $('#commentBox').val("");
@@ -119,7 +117,7 @@ CommentirUI.prototype.onLoginStateChange = function(error, info) {
 CommentirUI.prototype.displayComments = function() {
 	
 }
-alert("fdf");
+
 submitButton.onclick = __c_ui._postHandler;
 submitButton.onmouseover = hoverSubmit;
 submitButton.onmouseout = outSubmit;

@@ -11,7 +11,7 @@ $(document).ready(function() {
 var insert = "<div style = 'padding: 15px 20px 10px 20px; overflow: auto; width: 598px; min-height: 160px; background-color: none; margin-left: 225px; border-left: 1px solid #e3e3e3; border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3;'>"
 
 // > Title with Name
-insert = insert + "<h3 style = 'font-size: 22px;'>Commentir - Jonathan Chen</h3>";
+insert = insert + "<h3 id='commentir-name' style = 'font-size: 22px;'>Commentir - </h3>";
 
 // >> Start Scollable comments box
 insert = insert + "<div style = 'padding: 5px 10px 3px 10px; margin-top: 15px; margin-bottom: 10px;width:576px; height:100px; background-color:none; overflow:auto; border: 1px solid #e3e3e3;'>";
