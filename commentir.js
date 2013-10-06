@@ -76,6 +76,12 @@ h.onload = function() {
 };
 (document.head||document.documentElement).appendChild(h);
 
+// button css hover
+// var link = document.createElement("link");
+// link.href = "button-hovers.css";
+// link.type = "text/css";
+// link.rel = "stylesheet";
+// document.getElementsByTagName("head")[0].appendChild(link);
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 var s = document.createElement('script');
