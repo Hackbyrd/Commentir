@@ -1,5 +1,6 @@
 var commentButton = document.getElementById("commentButton");
 var submitButton = document.getElementById("submitButton");
+var firebase;
 
 var videoPlayer;
 var __c_ui;
@@ -38,10 +39,17 @@ function CommentirUI() {
 		this._limit = 140;
 		this._loggedIn = false;
 		this._commentir = new Commentir("https://commentir.firebaseio.com/");
+		firebase = this._commentir._firebase;
+		//alert(firebase);
+		firebase.on('value', function(snapshot) {
+			var users = snapshot.val().people;
+			//alert(snapshot.val().people["342198908"]["fullName"]);
+			//$('#commentir-name').text(snapshot.val().people.342198908.fullName);
+		});
 
 		var self = this;
 
-		alert("constructor 2");
+		//alert("constructor 2");
 		this._unload = null;
 
 		this.auth = new FirebaseSimpleLogin(self._commentir._firebase, function(error, user) {
@@ -52,12 +60,14 @@ function CommentirUI() {
 	    	// user authenticated with Firebase
 	    	this._loggedIn = true;
 	    	self._commentir.onLogin(user);
+	    	$('#commentir-name').text("Commentir - " + user.displayName);
 	    	console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
 
 	  	} else {
 	    	self._commentir.login('twitter');
 	  	}
 		});
+
 
 		//self._commentir.onLoginStateChange(function(error, user) {
 	    //	self.onLoginStateChange(error, user);
