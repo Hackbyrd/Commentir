@@ -1,11 +1,17 @@
 var showbutton = document.getElementById("showButton");
 showbutton.onclick = showInput;
+showbutton.onmouseover = hoverShow;
+showbutton.onmouseout = outShow;
 
 var hidebutton = document.getElementById("hideButton");
 hidebutton.onclick = hideInput;
+hidebutton.onmouseover = hoverHide;
+hidebutton.onmouseout = outHide;
 
 var resetbutton = document.getElementById("resetButton");
 resetbutton.onclick = resetText;
+resetbutton.onmouseover = hoverReset;
+resetbutton.onmouseout = outReset;
 
 // var submitbutton = document.getElementById("submitButton");
 // submitbutton.onclick = submit;
@@ -22,6 +28,7 @@ function fadeMessage() {
 	$("#message").hide();
 };
 
+// show button
 function showInput() {
 	videoPlayer.pauseVideo();
 	$("#showButton").hide();
@@ -29,16 +36,38 @@ function showInput() {
 	$("#inputBox").show();
 	$("#timeBox").val(secondsToString(videoPlayer.getCurrentTime()));
 };
+function hoverShow() {
+	$("#showButton").css("background-color", "#f7342a");
+}
+function outShow() {
+	$("#showButton").css("background-color", "#db2a21");
+}
+
+// hide button
 function hideInput() {
 	videoPlayer.playVideo();
 	$("#showButton").show();
 	$("#hideButton").hide();
 	$("#inputBox").hide();
 };
+function hoverHide() {
+	$("#hideButton").css("background-color", "#f7342a");
+}
+function outHide() {
+	$("#hideButton").css("background-color", "#db2a21");
+}
+
+// reset button
 function resetText() {
 	$("#timeBox").val('');
 	$("#commentBox").val('');
 };
+function hoverReset() {
+	$("#resetButton").css("background-color", "#f7342a");
+}
+function outReset() {
+	$("#resetButton").css("background-color", "#db2a21");
+}
 
 // function submit() {
 // 	hideInput();

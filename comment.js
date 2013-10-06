@@ -1,5 +1,16 @@
 var commentButton = document.getElementById("commentButton");
 var submitButton = document.getElementById("submitButton");
+
+submitButton.onmouseover = hoverSubmit;
+submitButton.onmouseout = outSubmit;
+// submit button
+function hoverSubmit() {
+	$("#submitButton").css("background-color", "#f7342a");
+}
+function outSubmit() {
+	$("#submitButton").css("background-color", "#db2a21");
+}
+
 var videoPlayer;
 var __c_ui;
 function onYouTubePlayerReady(playerId) {
