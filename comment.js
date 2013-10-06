@@ -1,7 +1,10 @@
 var commentButton = document.getElementById("commentButton");
 var submitButton = document.getElementById("submitButton");
-var videoPlayer = document.getElementById("movie_player");
+var videoPlayer;
 var __c_ui;
+function onYouTubePlayerReady(playerId) {
+      videoPlayer = document.getElementById("movie_player");
+}
 __c_ui = new CommentirUI();
 // cb.onclick = function(){
 // 	videoPlayer.pauseVideo();
@@ -32,7 +35,6 @@ function stringToSeconds(minuteString){
 function CommentirUI() {
 	this._limit = 140;
 	this._loggedIn = false;
-	alert("constructor 1");
 	this._commentir = new Commentir("https://commentir.firebaseio.com/");
 
 	alert("constructor 2");
@@ -44,7 +46,6 @@ function CommentirUI() {
     	self.onLoginStateChange(error, user);
   	});
 
-	alert("login");
   	self._commentir.login('twitter');
 }
 
@@ -52,7 +53,6 @@ CommentirUI.prototype._postHandler = function(e) {
 	// var comment = $('#commentBox').val();
 	// var videoUrl = videoPlayer.getVideoUrl();
 	// var time = stringToSeconds($('#timeBox').val());
-	alert("1");
 	var comment = $('#commentBox').val();
 	var videoUrl = videoPlayer.getVideoUrl();
 	var time = stringToSeconds($('#timeBox').val());

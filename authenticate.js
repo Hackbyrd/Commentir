@@ -13,6 +13,7 @@ function Commentir(baseURL){
     if (!baseURL || typeof baseURL != "string") {
         throw new Error("Invalid baseURL provided");
     }
+
     this._firebase = new Firebase(baseURL);
 
     this._authHandlers = [];

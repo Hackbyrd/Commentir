@@ -15,12 +15,6 @@ function secondsToString(seconds){
 	return minutes + ":" + seconds;
 }
 
-function stringToSeconds(minuteString){
-	var timeString = minuteString.split(":");
-	var minutes = timeString[0];
-	var seconds = timeString[1];
-	return parseInt(minutes) * 60 + parseInt(seconds);
-}
 
 function showInput() {
 	videoPlayer.pauseVideo();
@@ -30,6 +24,7 @@ function showInput() {
 	$("#timeBox").val(secondsToString(videoPlayer.getCurrentTime()));
 };
 function hideInput() {
+	videoPlayer.playVideo();
 	$("#showButton").show();
 	$("#hideButton").hide();
 	$("#inputBox").hide();
