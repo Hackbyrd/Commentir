@@ -62,6 +62,9 @@ CommentirUI.prototype._postHandler = function(e) {
 	__c_ui._commentir.post(comment, videoUrl, time, function(err, done) {
     if (!err) {
       $('#commentBox').val("");
+      hideInput();
+		$("#message").show();
+		window.setTimeout("fadeMessage();", 5000);
     } else {
       alert("Posting failed!");
     }

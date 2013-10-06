@@ -7,14 +7,20 @@ hidebutton.onclick = hideInput;
 var resetbutton = document.getElementById("resetButton");
 resetbutton.onclick = resetText;
 
+// var submitbutton = document.getElementById("submitButton");
+// submitbutton.onclick = submit;
+
 var videoPlayer = document.getElementById("movie_player");
 
 function secondsToString(seconds){
 	var minutes = Math.floor(seconds/60);
 	var seconds = seconds % 60;
 	return minutes + ":" + seconds;
-}
+};
 
+function fadeMessage() {
+	$("#message").hide();
+};
 
 function showInput() {
 	videoPlayer.pauseVideo();
@@ -33,6 +39,12 @@ function resetText() {
 	$("#timeBox").val('');
 	$("#commentBox").val('');
 };
+
+// function submit() {
+// 	hideInput();
+// 	$("#message").show();
+// 	window.setTimeout("fadeMessage();", 5000);
+// };
 
 /*! jQuery v2.0.3 | (c) 2005, 2013 jQuery Foundation, Inc. | jquery.org/license
 //@ sourceMappingURL=jquery-2.0.3.min.map

@@ -2,6 +2,7 @@
 $(document).ready(function() {
     $("#inputBox").hide();
     $("#hideButton").hide();
+    $("#message").hide();
 });
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -40,6 +41,7 @@ insert = insert + "</div>";
 // show the rest of the extention
 insert = insert + "<button id='showButton' onclick='showInput()' style = 'background-color: #db2a21; border-radius: 2px; color:white; padding:5px;'>Comment</button>";
 insert = insert + "<button id='hideButton' onclick='hideInput()' style = 'background-color: #db2a21; border-radius: 2px; color:white; padding:5px;'>Hide</button>";
+insert = insert + "<span id='message' style='margin-top:5px;color:green;float:right;'>Comment Submitted Successfully!</span>";
 
 // > Start InputBox
 insert = insert + "<div id='inputBox' style = 'padding-top: 9px; margin-top: 10px;width:596px; min-height:70px; background-color:none; overflow:auto; border-top: 1px solid #e3e3e3;'>";
