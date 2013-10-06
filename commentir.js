@@ -17,16 +17,12 @@ insert = insert + "<h3 id='commentir-name' style = 'font-size: 22px;'>Commentir 
 insert = insert + "<div style = 'padding: 5px 10px 3px 10px; margin-top: 15px; margin-bottom: 10px;width:576px; height:100px; background-color:none; overflow:auto; border: 1px solid #e3e3e3;'>";
 
 // >> Start list comments
-insert = insert + "<ul>";
+insert = insert + "<ul id='commentDisplay'>";
 
 // >>> Add Comments
-insert = insert + "<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>99:29</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>Sawyer Symington:</b> This part is so funny!</div></li>";
-insert = insert + "<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>42:29</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>Sawyer Symington:</b> This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny!</div></li>";
-insert = insert + "<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>32:29</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>Sawyer Symington:</b> This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny!</div></li>";
-insert = insert + "<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>22:29</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>Sawyer Symington:</b> This part is so funny!</div></li>";
-insert = insert + "<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>12:29</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>Sawyer Symington:</b> This part is so funny! This part is so funny! This part is so funny! This part is so funny! This part is so funny! </div></li>";
-insert = insert + "<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>07:29</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>Sawyer Symington:</b> This part is so funny!</div></li>";
-insert = insert + "<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>02:29</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>Sawyer Symington:</b> This part is so funny!</div></li>";
+insert = insert + "<li id='firstComment'>There are no comments at the moment.</li>";
+
+
 
 
 // >> End list comments

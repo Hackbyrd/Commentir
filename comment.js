@@ -2,6 +2,8 @@ var commentButton = document.getElementById("commentButton");
 var submitButton = document.getElementById("submitButton");
 var firebase;
 
+var commentList = new Array(); 
+
 var videoPlayer;
 var __c_ui;
 function onYouTubePlayerReady(playerId) {
@@ -42,10 +44,30 @@ function CommentirUI() {
 		firebase = this._commentir._firebase;
 		//alert(firebase);
 		firebase.on('value', function(snapshot) {
-			var users = snapshot.val().people;
+			// var users = snapshot.val().people;
+			var comments = snapshot.val().sparks;
+			for (c in comments){
+			 	var content = comments[c]['content'];
+			 	var time = comments[c]['time'];
+			 	var author = comments[c]['by'];
+			 	var video = comments[c]['video'];
+			 	var comment = {id:c, content:content, time:time, author:author, video:video};
+			 	if (video === videoPlayer.getVideoUrl().split("&")[0]){
+			 		commentList.push(comment);
+			 	}
+			 }
+			 commentList.sort(function(a, b){
+			 		return a.time - b.time;
+			 	});
+			 for (sc in commentList){
+			 	
+			 }
+			// }
 			//alert(snapshot.val().people["342198908"]["fullName"]);
 			//$('#commentir-name').text(snapshot.val().people.342198908.fullName);
 		});
+
+		var commentUpdater = setInterval(this.displayComments, 1500);
 
 		var self = this;
 
@@ -92,7 +114,7 @@ CommentirUI.prototype._postHandler = function(e) {
 	    	self._commentir.onLogin(user);
 	    	console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
 	    	var comment = $('#commentBox').val();
-			var videoUrl = videoPlayer.getVideoUrl();
+			var videoUrl = videoPlayer.getVideoUrl().split("&")[0];
 			var time = stringToSeconds($('#timeBox').val());
 			self._commentir.post(comment, videoUrl, time, function(err, done) {
 		    if (!err) {
@@ -124,9 +146,23 @@ CommentirUI.prototype.onLoginStateChange = function(error, info) {
   }
 };
 
-CommentirUI.prototype.displayComments = function() {
-	
+// CommentirUI.prototype.displayComments = function(){
+// 	alert(commentList[0].time);
+// 	if (commentList[0].time <= videoPlayer.getCurrentTime()){
+// 		var c = commentList.shift();
+// 		("<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>"+c.time+"</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>"+c.author+":</b> "+c.content+"</div></li>").insertBefore$('#commentDisplay li:first');
+// 	}
+// }
+
+function displayCommentss() {
+	if (commentList[0] && commentList[0].time <= videoPlayer.getCurrentTime()){
+		var c = commentList.shift();
+		$('#firstComment').hide();
+		$("<li style = 'margin-bottom: 7px;'><div style = 'float: left; width: 56px;background-color:none;margin-bottom: 7px;'> > <i>"+secondsToString(c.time)+"</i></div> <div style = 'float:left;width:520px;background-color:none;margin-bottom: 7px;'><b>"+c.author+":</b> "+c.content+"</div></li>").insertBefore($('#commentDisplay li:first'));
+	}
 }
+
+var commentUpdater = setInterval(displayCommentss, 1500);
 
 submitButton.onclick = __c_ui._postHandler;
 submitButton.onmouseover = hoverSubmit;
