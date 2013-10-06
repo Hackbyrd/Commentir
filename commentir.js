@@ -40,6 +40,27 @@ s.src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js";
 s.onload = function() {
 	this.parentNode.removeChild(this);
 };
+(document.head).appendChild(s);
+
+var s = document.createElement('script');
+s.src = "https://cdn.firebase.com/v0/firebase.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.head).appendChild(s);
+
+var s = document.createElement('script');
+s.src = "https://cdn.firebase.com/v0/firebase-simple-login.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.head).appendChild(s);
+
+var s = document.createElement('script');
+s.src = chrome.extension.getURL("authenticate.js");
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
 (document.documentElement).appendChild(s);
 
 var s = document.createElement('script');
@@ -49,21 +70,11 @@ s.onload = function() {
 };
 (document.documentElement).appendChild(s);
 
+var s = document.createElement('script');
+s.src = "https://cdn.firebase.com/v0/firebase.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.head).appendChild(s);
 
-var insert = 
-['<div id="dialog-form" title="Create new user">',
-'  <p class="validateTips">All form fields are required.</p>',
-' ',
-'  <form>',
-'  <fieldset>',
-'    <label for="name">Name</label>',
-'    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />',
-'    <label for="email">Email</label>',
-'    <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />',
-'    <label for="password">Password</label>',
-'    <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />',
-'  </fieldset>',
-'  </form>',
-'</div>'].join('\n');
-(document.documentElement).appendChild(insert);
 
