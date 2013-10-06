@@ -2,9 +2,6 @@
 $(document).ready(function() {
     $("#inputBox").hide();
     $("#hideButton").hide();
-
-    // Hide and Show buttons
-	//function showInput() {$("#showButton").hide();$("#hideButton").show();$("#inputBox").show();};function hideInput() {$("#showButton").show();$("#hideButton").hide();$("#inputBox").hide();};
 });
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -69,8 +66,6 @@ insert = insert + "</div>";
 
 $("#player").after(insert);
 
-// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 // button functions
 var h = document.createElement('script');
 h.src = chrome.extension.getURL("buttons.js");
@@ -79,44 +74,42 @@ h.onload = function() {
 };
 (document.head||document.documentElement).appendChild(h);
 
-// Hide and Show buttons
-//jQuery('body').append('<script type="text/javascript">function(l){var res = document.createElement("SCRIPT");res.type = "text/javascript";res.src = l;document.getElementsByTagName("head")[0].appendChild(res);};chrome.extension.getURL("showHide.js");</script>');
+(document.documentElement).appendChild(s);
 
-// var hs = document.createElement('script');
-// hs.type = "text/javascript";
-// hs.src = "hideShow.js";
-// hs.text = 'function showInput() {$("#showButton").hide();$("#hideButton").show();$("#inputBox").show();};function hideInput() {$("#showButton").show();$("#hideButton").hide();$("#inputBox").hide();};';
-// $("#player").after(hs);
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+var s = document.createElement('script');
+s.src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.head).appendChild(s);
 
-// var s = document.createElement('script');
-// s.src = "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js";
-// s.onload = function() {
-// 	this.parentNode.removeChild(this);
-// };
-// (document.documentElement).appendChild(s);
+var s = document.createElement('script');
+s.src = "https://cdn.firebase.com/v0/firebase.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.head).appendChild(s);
 
-// var s = document.createElement('script');
-// s.src = chrome.extension.getURL("comment.js");
-// s.onload = function() {
-// 	this.parentNode.removeChild(this);
-// };
-// (document.documentElement).appendChild(s);
+var s = document.createElement('script');
+s.src = "https://cdn.firebase.com/v0/firebase-simple-login.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.head).appendChild(s);
+
+var s = document.createElement('script');
+s.src = chrome.extension.getURL("authenticate.js");
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.documentElement).appendChild(s);
 
 
-// var insert = 
-// ['<div id="dialog-form" title="Create new user">',
-// '  <p class="validateTips">All form fields are required.</p>',
-// ' ',
-// '  <form>',
-// '  <fieldset>',
-// '    <label for="name">Name</label>',
-// '    <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />',
-// '    <label for="email">Email</label>',
-// '    <input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />',
-// '    <label for="password">Password</label>',
-// '    <input type="password" name="password" id="password" value="" class="text ui-widget-content ui-corner-all" />',
-// '  </fieldset>',
-// '  </form>',
-// '</div>'].join('\n');
-// (document.documentElement).appendChild(insert);
+var s = document.createElement('script');
+s.src = "https://cdn.firebase.com/v0/firebase.js";
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.head).appendChild(s);
 

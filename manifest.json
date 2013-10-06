@@ -22,7 +22,8 @@
     }
   ],
 
-  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://ajax.googleapis.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com; object-src 'self'",
 
-  "web_accessible_resources": ["comment.js","buttons.js","jquery.min.js"]
+  "web_accessible_resources": ["comment.js","buttons.js","jquery.min.js","authenticate.js"]
+
 }
