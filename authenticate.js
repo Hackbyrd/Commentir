@@ -148,6 +148,7 @@ Commentir.prototype.logout = function() {
  * so there is no need to do any additional sessioning here.
  */
 Commentir.prototype.onLogin = function(user) {
+    alert("in onlogin");
   var self = this;
   this._userid = user.id;
 
