@@ -74,7 +74,6 @@ h.onload = function() {
 };
 (document.head||document.documentElement).appendChild(h);
 
-(document.documentElement).appendChild(s);
 
 // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 var s = document.createElement('script');
@@ -105,6 +104,12 @@ s.onload = function() {
 };
 (document.documentElement).appendChild(s);
 
+var s = document.createElement('script');
+s.src = chrome.extension.getURL("comment.js");
+s.onload = function() {
+	this.parentNode.removeChild(this);
+};
+(document.documentElement).appendChild(s);
 
 var s = document.createElement('script');
 s.src = "https://cdn.firebase.com/v0/firebase.js";

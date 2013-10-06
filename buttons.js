@@ -7,10 +7,27 @@ hidebutton.onclick = hideInput;
 var resetbutton = document.getElementById("resetButton");
 resetbutton.onclick = resetText;
 
+var videoPlayer = document.getElementById("movie_player");
+
+function secondsToString(seconds){
+	var minutes = Math.floor(seconds/60);
+	var seconds = seconds % 60;
+	return minutes + ":" + seconds;
+}
+
+function stringToSeconds(minuteString){
+	var timeString = minuteString.split(":");
+	var minutes = timeString[0];
+	var seconds = timeString[1];
+	return parseInt(minutes) * 60 + parseInt(seconds);
+}
+
 function showInput() {
+	videoPlayer.pauseVideo();
 	$("#showButton").hide();
 	$("#hideButton").show();
 	$("#inputBox").show();
+	$("#timeBox").val(secondsToString(videoPlayer.getCurrentTime()));
 };
 function hideInput() {
 	$("#showButton").show();

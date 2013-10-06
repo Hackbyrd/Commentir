@@ -53,9 +53,9 @@ CommentirUI.prototype._postHandler = function(e) {
 	// var videoUrl = videoPlayer.getVideoUrl();
 	// var time = stringToSeconds($('#timeBox').val());
 	alert("1");
-	var comment = "Weird shit";
+	var comment = $('#commentBox').val();
 	var videoUrl = videoPlayer.getVideoUrl();
-	var time = stringToSeconds("1:01");
+	var time = stringToSeconds($('#timeBox').val());
 	alert("fd");
 	var self = this;
 	alert("fsfd");
@@ -65,13 +65,13 @@ CommentirUI.prototype._postHandler = function(e) {
     } else {
       alert("Posting failed!");
     }
-    commentButton.onclick = self._postHandler;
+    submitButton.onclick = self._postHandler;
    });
  };
 
 CommentirUI.prototype.renderTimeline = function(info) {
 	var self = this;
-	commentButton.onclick = self._postHandler;
+	submitButton.onclick = self._postHandler;
 };
 
 CommentirUI.prototype.onLoginStateChange = function(error, info) {
