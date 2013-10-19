@@ -99,6 +99,10 @@ function CommentirUI() {
   	});
 }
 
+/**
+ * Handles posting of new comments to firebase backend when
+ * comment submit button is clicked
+ */
 CommentirUI.prototype._postHandler = function(e) {
 	// var comment = $('#commentBox').val();
 	// var videoUrl = videoPlayer.getVideoUrl();
@@ -116,7 +120,8 @@ CommentirUI.prototype._postHandler = function(e) {
 	    	self._commentir.onLogin(user);
 	    	console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
 	    	var comment = $('#commentBox').val();
-			var videoUrl = videoPlayer.getVideoUrl().split("&")[0];
+			var match = url.match(/[?&]v=([^&]+)/); //regex to get video id from url
+			var videoUrl = match[1];
 			var time = stringToSeconds($('#timeBox').val());
 			self._commentir.post(comment, videoUrl, time, function(err, done) {
 		    if (!err) {
@@ -133,6 +138,7 @@ CommentirUI.prototype._postHandler = function(e) {
 	    	self._commentir.login('twitter');
 	  	}
 		});
+	submitButton.onclick = self._postHandler;
  };
 
 CommentirUI.prototype.renderTimeline = function(info) {
