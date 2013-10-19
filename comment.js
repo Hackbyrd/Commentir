@@ -53,7 +53,9 @@ function CommentirUI() {
 			 	var author = comments[c]['by'];
 			 	var video = comments[c]['video'];
 			 	var comment = {id:c, content:content, time:time, author:author, video:video};
-			 	if (video === videoPlayer.getVideoUrl().split("&")[0] && !addedComments[c]){
+			 	var match = document.URL.match(/[?&]v=([^&]+)/); //regex to get video id from url
+				var videoUrl = match[1];
+			 	if (video === videoUrl && !addedComments[c]){
 			 		addedComments[c] = true;
 			 		commentList.push(comment);
 			 	}
@@ -120,7 +122,7 @@ CommentirUI.prototype._postHandler = function(e) {
 	    	self._commentir.onLogin(user);
 	    	console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
 	    	var comment = $('#commentBox').val();
-			var match = url.match(/[?&]v=([^&]+)/); //regex to get video id from url
+			var match = document.URL.match(/[?&]v=([^&]+)/); //regex to get video id from url
 			var videoUrl = match[1];
 			var time = stringToSeconds($('#timeBox').val());
 			self._commentir.post(comment, videoUrl, time, function(err, done) {
